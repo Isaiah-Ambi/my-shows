@@ -1,0 +1,9 @@
+<ul>
+    {% for show in results %}
+    <li>{{ show.name }} </li>
+    <img src="{{ show.image_url | safe }}">
+    
+    <p>{{ show.summary }}</p>
+    <a href="{% url 'add_show' show.tvmaze_id %}">add show to list</a>
+    {% endfor %}
+</ul>

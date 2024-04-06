@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+
+
+<table>
+    <tr>
+        <th><h2>Items</h2></th>
+        
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>
+            <p>
+            {{ task.title }}
+            </p>
+        </td>
+        <td>
+            <a href="{% url 'task-content' task.id %}">View</a>
+        </td>
+       <td>
+        <a href="{% url 'delete-task' task.id %}">Delete</a>
+       </td>
+        
+        <td>
+            {% if task.complete %}
+            <p>Complete</p>
+            {% else %}
+            <p> Not complete </p>
+            {% endif %}</p>
+        </div>
+    </td>
+        <td>
+            <div>
+            <a href="{% url 'delete-task' task.id %}">
+           
+            </div>
+        </td>
+        <td>
+            
+                <b>{{ task.created }}</b>
+            
+        </td>
+       
+    </tr>
+    
+
+    {% empty %}
+        <h3>No items in list</h3>
+    {% endfor %}
+</table>
+
+
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input title="title" type="text" id="title" name="title" required>
+    <label for="content">Content:</label>
+    <input title="content" type="text" id="content" name="content">
+    <input type="submit">
+</form>
+
+<div>
+<a href="{% url 'logout' %}"><button>Logout</button></a>
+</div>
+
+
+{% endblock content %}
+
