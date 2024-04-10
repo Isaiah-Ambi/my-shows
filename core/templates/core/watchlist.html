@@ -1,7 +1,19 @@
-<ul>
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="grid grid-cols-2 p-0 md:grid-cols-3 p-2; lg:grid-cols-5 p-2;">
+
     {% for watchlist_show in watchlist_shows %}
-    <li>
-        {{ watchlist_show.show }}
-    </li>
+    <div class="w-36">
+
+        <img class="object-scale-down" src="{{ watchlist_show.show.image_url | safe }}">
+
+        <p>{{ watchlist_show.show }}</p>
+        
+        
+    </div>
     {% endfor %}
-</ul>
+
+</div>
+
+{% endblock %}
