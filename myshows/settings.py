@@ -37,6 +37,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 
 # Application definition
 
@@ -48,12 +53,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'tailwind',
+    'theme',
+    'django_browser_reload',
     'ninja',
     # 'crispy_forms',
 
     # 'user.apps.UserConfig',
     'user_auth',
     'core',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +71,9 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -134,8 +146,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+TAILWIND_APP_NAME = 'theme'
+
 # CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'search'
 
 
