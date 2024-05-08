@@ -28,6 +28,6 @@ urlpatterns = [
 
 
     path('', include('core.urls')),
-    path('/movies', include('movies.urls')),
+    path('movies/', include('movies.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
